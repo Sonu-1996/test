@@ -5,7 +5,7 @@ helm install --version=4.11.3 nginx-ingress ingress-nginx/ingress-nginx \
   --set controller.service.annotations."cloud\.google\.com/load-balancer-type"=External \
   --set controller.service.annotations."networking\.gke\.io/load-balancer-type"=Pass-through \
   --set controller.service.annotations."cloud\.google\.com/l4-rbs"=enabled\
-  --set controller.service.loadBalancerIP="ingress-test-ip" \
+  --set controller.service.annotations="networking\.gke\.io/load-balancer-ip-addresses"="ingress-test-ip" \
   --set controller.service.externalTrafficPolicy=Local \
   --set controller.service.ports.https=443 \
   --set controller.config.ssl-ciphers="ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384" \
